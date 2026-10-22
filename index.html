@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#10172d">
+  <meta name="description" content="Sales Marketing in Event — an interactive escape-room learning game for final-year Diploma in Event Management students.">
+  <title>Sales Marketing in Event | EventLab Escape Room</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="#" id="brandHome"><span class="brand-icon">✦</span> EVENT<span class="accent">LAB</span></a>
+  <div class="top-actions"><span class="course-tag">DIPLOMA · FINAL YEAR</span><button id="soundToggle" class="text-button" type="button" aria-pressed="false">♫ <span id="soundLabel">Sound off</span></button></div>
+</header>
+<main class="shell">
+  <section id="homeScreen" class="screen">
+    <div class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow"><i></i> THE EVENT SALES ESCAPE ROOM</p>
+        <h1>Sell the event.<br><span>Unlock the venue.</span></h1>
+        <p class="lead">Your event launch is locked down. Solve 15 real-world sales and marketing challenges, open each venue zone, and prove you can turn an event concept into a compelling offer.</p>
+        <div class="button-row"><button id="startButton" class="primary" type="button">Start the mission <b>↗</b></button><button id="howToButton" class="secondary" type="button">How to play</button></div>
+        <div class="stats"><div><b>15</b><span>challenges</span></div><div><b>~15 min</b><span>recommended</span></div><div><b>∞</b><span>untimed mode</span></div></div>
+      </div>
+      <div class="hero-visual" aria-label="Stylised 3D illustration of an illuminated event venue">
+        <div class="floating-label label-top">CAMPAIGN HQ <b>● LIVE</b></div>
+        <div class="scene">
+          <div class="skyline"></div><div class="skyline skyline-2"></div>
+          <div class="roof"></div><div class="portal"><div class="portal-glow"></div><div class="portal-split"></div><div class="handle"></div></div>
+          <div class="step step-a"></div><div class="step step-b"></div><div class="floor"></div>
+          <div class="ring ring-a"></div><div class="ring ring-b"></div><div class="cube cube-a"></div><div class="cube cube-b"></div>
+        </div>
+        <div class="floating-label label-bottom">ACCESS LEVEL <b>01 / 05</b></div>
+        <div class="visual-caption"><span>↗</span><div><b>MISSION BRIEFING</b><small>Every smart decision opens a new door.</small></div></div>
+      </div>
+    </div>
+    <div class="objective"><div class="objective-icon">◎</div><div><b>MISSION OBJECTIVE</b><p>Apply market analysis, positioning, promotion, sales conversion, budgeting, customer relationship management and evaluation to solve practical event scenarios.</p></div><span class="objective-tag">LEARN BY DECIDING</span></div>
+    <div class="feature-grid">
+      <article><small>01 / OUTCOME</small><h3>Make evidence-led decisions</h3><p>Identify audiences, build value propositions, choose channels, handle objections and evaluate campaign performance.</p></article>
+      <article><small>02 / CONTROLS</small><h3>Point, choose, unlock</h3><p>Select an answer with mouse or touch. Keyboard users can navigate with Tab and select with Enter or Space.</p></article>
+      <article><small>03 / FEEDBACK</small><h3>Learn from every lock</h3><p>Review explanations after mistakes and retry. Speed never replaces demonstrated knowledge.</p></article>
+    </div>
+  </section>
+
+  <section id="instructionsScreen" class="screen hidden">
+    <div class="section-title"><p class="eyebrow">MISSION PROTOCOL</p><h2>Before you enter</h2><p>Use the clues, not guesswork. Every lock represents a decision an event marketer could face.</p></div>
+    <div class="instruction-grid">
+      <article><span>01</span><h3>Solve the lock</h3><p>Read the scenario and select the strongest answer. You must answer correctly to open the next area.</p></article>
+      <article><span>02</span><h3>Review the clue</h3><p>An incorrect answer triggers an explanation. Review it and try again. Incorrect attempts do not reduce the knowledge score.</p></article>
+      <article><span>03</span><h3>Reach the exit</h3><p>Complete all 15 challenges. Your final report separates first-attempt knowledge accuracy from time taken.</p></article>
+    </div>
+    <div class="mode-panel"><div><h3>Choose your mission mode</h3><p>Recommended duration: 15 minutes. Untimed mode is suitable for guided learning and class discussion.</p></div><label class="toggle"><input id="untimedToggle" type="checkbox"><span></span><b>Untimed mode<small>No timer pressure</small></b></label></div>
+    <div class="screen-actions"><button id="backHomeButton" class="secondary" type="button">← Home</button><button id="beginGameButton" class="primary" type="button">Enter the venue ↗</button></div>
+  </section>
+
+  <section id="gameScreen" class="screen hidden">
+    <div class="game-heading"><div><p class="eyebrow">LIVE MISSION</p><h2 id="zoneTitle">Zone 01: Audience Intelligence</h2></div><div class="metrics"><div><small>UNLOCKED</small><b id="progressText">01 / 15</b></div><div><small>KNOWLEDGE SCORE</small><b id="scoreText">0%</b></div><div id="timerMetric"><small>TIME LEFT</small><b id="timerText">15:00</b></div></div></div>
+    <div class="progress"><div id="progressFill"></div></div>
+    <div class="game-layout">
+      <aside class="map-card">
+        <div class="map-heading">VENUE ACCESS MAP <span>● LIVE</span></div>
+        <div class="map" aria-label="Five-zone venue map">
+          <div class="hall hall-1 current"><b>01</b><small>INSIGHT</small></div><div class="hall hall-2"><b>02</b><small>STRATEGY</small></div><div class="hall hall-3"><b>03</b><small>CAMPAIGN</small></div><div class="hall hall-4"><b>04</b><small>CONVERSION</small></div><div class="hall hall-5"><b>05</b><small>EXIT</small></div>
+          <div class="map-path mp1"></div><div class="map-path mp2"></div><div class="map-path mp3"></div><div class="map-path mp4"></div><div id="mapPlayer">◆</div>
+        </div>
+        <div class="legend"><span><i class="done-dot"></i>Unlocked</span><span><i class="current-dot"></i>Current</span><span><i class="locked-dot"></i>Locked</span></div>
+        <div class="field-note"><b>✦ FIELD NOTE</b><p id="fieldNote">Understand the audience before you sell the experience.</p></div>
+        <button id="quitButton" class="text-button quit" type="button">↩ Return to home</button>
+      </aside>
+      <section class="challenge" aria-live="polite">
+        <div class="challenge-meta"><span id="challengeNumber">CHALLENGE 01</span><span class="difficulty">MEDIUM</span></div>
+        <h3 id="questionText"></h3><p id="questionContext" class="context"></p>
+        <div id="answersContainer" class="answers"></div>
+        <div id="feedbackBox" class="feedback hidden" role="status"><span id="feedbackIcon" class="feedback-icon">!</span><div><h4 id="feedbackTitle">Review the clue</h4><p id="feedbackText"></p></div></div>
+        <div class="challenge-footer"><span id="attemptText">Choose one answer to test the lock.</span><button id="continueButton" class="primary hidden" type="button">Continue to next area →</button></div>
+      </section>
+    </div>
+  </section>
+
+  <section id="completionScreen" class="screen hidden">
+    <div class="completion-hero"><div class="seal">✓</div><p class="eyebrow">MISSION COMPLETE</p><h2 id="completionTitle">The venue is yours.</h2><p id="completionMessage">You have completed the Sales Marketing in Event escape room.</p></div>
+    <div class="result-grid"><article class="result-card main-result"><small>KNOWLEDGE ACCURACY</small><b id="finalAccuracy">0%</b><p>Based on your first answer for each question.</p></article><article class="result-card"><small>CHALLENGES SOLVED</small><b id="finalSolved">15 / 15</b><p>All locks opened.</p></article><article class="result-card"><small>TIME USED</small><b id="finalTime">—</b><p>Speed does not affect knowledge accuracy.</p></article></div>
+    <div class="review-heading"><div><p class="eyebrow">LEARNING REPORT</p><h3>Review your decisions</h3></div><span id="reviewSummary">15 questions reviewed</span></div><div id="reviewList" class="review-list"></div>
+    <div class="screen-actions"><button id="completionHomeButton" class="secondary" type="button">⌂ Return home</button><button id="restartButton" class="primary" type="button">Play again ↻</button></div>
+  </section>
+  <footer class="footer"><span>EVENTLAB · LEARN THROUGH DECISION-MAKING</span><span>CLASSROOM EDITION · v1.0</span></footer>
+</main>
+<div id="toast" class="toast hidden" role="status"></div>
+</body>
+</html>
