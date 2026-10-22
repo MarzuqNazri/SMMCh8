@@ -1,201 +1,63 @@
-/* ==========================================================
-   SALES MARKETING IN EVENT — EDITABLE QUESTION BANK
-   Each question has: zone, title, context, question, options,
-   answer (zero-based option index), explanation, and fieldNote.
-   Keep exactly one correct answer per question.
-   ========================================================== */
-const QUESTION_BANK = [
-  {zone:"Audience Intelligence",title:"Audience Intelligence",context:"You are promoting a regional food-and-culture festival with a limited marketing budget.",question:"What is the strongest first step before choosing promotional channels?",options:["Design a poster and publish it everywhere","Define the target audience using relevant demographic, geographic and behavioural evidence","Offer a discount to every person who sees the event","Book a celebrity before checking audience interest"],answer:1,explanation:"Audience segmentation identifies who the event is for and what motivates them. It gives the team a defensible basis for the message, channel and budget rather than relying on assumptions.",fieldNote:"Understand the audience before you sell the experience."},
-  {zone:"Audience Intelligence",title:"Audience Intelligence",context:"Research shows that young professionals value networking and practical takeaways, while families value activities for children.",question:"How should the campaign use these findings?",options:["Use one generic message so every segment sees the same benefits","Focus only on the largest segment and ignore the rest","Tailor the value proposition and message to each priority segment","Change the event concept completely for every audience"],answer:2,explanation:"Segment-specific messaging connects benefits to audience needs. The event can retain one coherent identity while highlighting networking for professionals and family activities for parents.",fieldNote:"A segment is useful when it changes a marketing decision."},
-  {zone:"Audience Intelligence",title:"Audience Intelligence",context:"A sponsor asks why the team believes 18–30-year-olds will attend. The team has only informal opinions.",question:"Which evidence would best support the target-market decision?",options:["A survey of likely attendees combined with relevant past-event attendance and channel data","The event manager's personal social-media feed","A competitor's logo and colour palette","The number of staff available on event day"],answer:0,explanation:"Primary research such as surveys, combined with relevant historical and channel data, tests audience interest more reliably than personal opinion. State sample limitations and avoid treating estimates as guarantees.",fieldNote:"Use evidence to validate assumptions; document uncertainty."},
-  {zone:"Positioning & Value",title:"Positioning & Value",context:"Three events compete for the same weekend audience. Your event offers hands-on workshops led by local makers.",question:"What is the most useful positioning statement?",options:["The biggest event ever, with everything for everyone","Tickets are available online","An event with many activities and food stalls","A practical maker experience where visitors learn directly from local craftspeople"],answer:3,explanation:"Effective positioning communicates a distinctive, audience-relevant benefit. A clear point of difference helps people understand why this event suits them better than alternatives.",fieldNote:"Positioning answers: why this event, for this audience?" },
-  {zone:"Positioning & Value",title:"Positioning & Value",context:"A potential attendee says the ticket costs more than a general admission ticket to a competing event.",question:"What should the salesperson do first?",options:["Immediately reduce the price for everyone","Explain relevant included benefits and ask what matters most to the attendee","Criticise the competitor's event","Promise benefits that have not been confirmed"],answer:1,explanation:"Value-based selling links the price to verified benefits and explores the buyer's needs. Discounts may be appropriate, but they should follow a pricing policy and not be the automatic response.",fieldNote:"Sell relevant value, not unsupported promises."},
-  {zone:"Positioning & Value",title:"Positioning & Value",context:"Your event's promise is 'an intimate premium networking experience', but the draft advert uses crowded stock imagery and vague claims.",question:"Which revision best protects the brand promise?",options:["Use luxury language repeatedly without changing the visuals","Add as many sponsor logos as possible","Use credible imagery and specific details that demonstrate the intimate networking experience","Remove all event information and use only a slogan"],answer:2,explanation:"Brand consistency means the message, imagery and actual experience reinforce one another. Specific, credible proof builds trust and reduces the risk of a mismatch between promotion and delivery.",fieldNote:"The promotional promise must match the event experience."},
-  {zone:"Campaign Planning",title:"Campaign Planning",context:"The event is eight weeks away. The team has a small budget and several channels available.",question:"Which plan is most appropriate?",options:["Set objectives, map audience segments, choose suitable channels, schedule content and allocate budget","Spend the full budget on the first channel that offers a discount","Post whenever staff have free time","Use every channel equally regardless of audience behaviour"],answer:0,explanation:"A campaign plan links measurable objectives to audiences, channel choices, timing, content and resources. Channel selection should be justified by audience fit and expected performance.",fieldNote:"A campaign is a coordinated plan, not a collection of posts."},
-  {zone:"Campaign Planning",title:"Campaign Planning",context:"The campaign goal is to increase advance ticket sales among university students.",question:"Which call to action is clearest?",options:["Find out more about things happening in the city","Keep an eye on our page","Tell your friends about events","Book your student ticket now using the verified student offer"],answer:3,explanation:"A strong call to action tells the audience what to do next and, where relevant, clarifies the offer. The offer must be genuine and eligibility rules should be easy to find.",fieldNote:"Make the next action obvious and truthful."},
-  {zone:"Campaign Planning",title:"Campaign Planning",context:"An email campaign has a low open rate. The team wants to improve the next send.",question:"What is the most responsible first optimisation?",options:["Buy a list of unrelated email addresses","Review consent, list quality, subject line relevance and delivery data; test one change at a time","Send the same email several times in one day","Hide the unsubscribe option"],answer:1,explanation:"Reviewing permission, list quality, deliverability and relevance protects recipients and brand reputation. Controlled tests help identify which changes improve performance; opt-out mechanisms should remain accessible.",fieldNote:"Optimise responsibly; audience trust is a marketing asset."},
-  {zone:"Sales Conversion",title:"Sales Conversion",context:"A corporate client is interested in a team-building event but is unsure whether the package fits their objectives.",question:"What is the best next step in a consultative sales conversation?",options:["Send the standard package without asking anything else","Pressure them to sign before the offer expires","Ask about objectives, group size, constraints and success criteria, then recommend a suitable package","Offer the lowest price regardless of scope"],answer:2,explanation:"Consultative selling diagnoses needs before proposing a solution. The recommendation should connect event features to the client's objectives, operational constraints and agreed success measures.",fieldNote:"Diagnose the need before prescribing the package."},
-  {zone:"Sales Conversion",title:"Sales Conversion",context:"A buyer asks whether the venue is accessible for a guest who uses a wheelchair. You are not certain about one entrance.",question:"What is the most professional response?",options:["Confirm the details with the venue or operations team and provide accurate information promptly","Assure the buyer that everything is accessible without checking","Avoid answering and change the subject","Say accessibility is the guest's responsibility"],answer:0,explanation:"Sales communication must be accurate, especially for access and safety requirements. Verify the information with the responsible team, communicate limitations honestly and follow up promptly.",fieldNote:"Trust grows when claims are verified."},
-  {zone:"Sales Conversion",title:"Sales Conversion",context:"A ticket buyer abandons checkout after seeing the total price, including fees.",question:"Which response is most likely to improve conversion ethically?",options:["Hide fees until the final payment screen","Create a false countdown timer","Send repeated messages until the buyer pays","Show transparent total pricing early, explain what is included and simplify the checkout journey"],answer:3,explanation:"Transparent pricing reduces unpleasant surprises and supports informed decisions. A simple, trustworthy checkout can reduce friction without using deceptive urgency or hiding costs.",fieldNote:"Reduce friction without misleading customers."},
-  {zone:"Budget & Measurement",title:"Budget & Measurement",context:"A campaign spends RM1,000 and generates RM4,000 in ticket revenue attributable to that campaign. For this exercise, calculate ROAS as revenue divided by ad spend.",question:"What is the campaign's return on ad spend (ROAS)?",options:["0.25×","4×","RM3,000×","5×"],answer:1,explanation:"ROAS = attributed revenue ÷ advertising spend = RM4,000 ÷ RM1,000 = 4. This means RM4 in attributed revenue for each RM1 spent on ads. ROAS is not the same as profit or overall ROI.",fieldNote:"Know the metric formula before interpreting performance."},
-  {zone:"Budget & Measurement",title:"Budget & Measurement",context:"A campaign receives many likes, but ticket sales remain below target.",question:"Which set of metrics best helps diagnose sales effectiveness?",options:["Only follower count and total likes","Only the number of posts published","Click-through rate, landing-page conversion rate, cost per acquisition and ticket sales","Only the number of colours used in campaign artwork"],answer:2,explanation:"Engagement can indicate attention, but conversion metrics show whether activity moves people toward purchase. Compare channel performance against the objective and use consistent attribution assumptions.",fieldNote:"Measure outcomes that match the objective."},
-  {zone:"Exit Challenge",title:"Exit Challenge",context:"NEW EXAMPLE: A community arts event has 300 tickets left two weeks before opening. Past data shows local families respond to school newsletters, while young adults discover events through short videos. The remaining budget is limited.",question:"Which action best applies audience segmentation, channel fit and performance measurement together?",options:["Put the entire remaining budget into one viral-video attempt and measure views only","Send the same message to every contact and count impressions","Cut ticket prices for all buyers immediately without checking the cause of slow sales","Run tailored messages through the relevant channels, use trackable links or codes, and reallocate spend based on ticket conversions"],answer:3,explanation:"This solution connects audience insight to channel choice and measures the outcome that matters: ticket conversion. Trackable links or codes help compare channels; review results frequently and adjust within the approved budget. This new scenario tests transfer of learning, not recall alone.",fieldNote:"Final test: combine audience, channel and conversion evidence."}
+/* EDITABLE QUESTION BANK: edit the questions array below to update challenge wording, options, answers and explanations. Correct answer is zero-indexed. */
+const questions = [
+ {zone:'Foundations',icon:'⌁',scene:'Visitor experience desk',en:'A family chooses a destination because it offers a rainforest walk, a heritage district and a weekend cultural festival. What does this best demonstrate?',ms:'Sebuah keluarga memilih destinasi kerana terdapat aktiviti berjalan di hutan hujan, kawasan warisan dan festival kebudayaan hujung minggu. Apakah yang paling tepat ditunjukkan?',options:[['Tourism experiences can motivate destination choice.','Pengalaman pelancongan boleh mempengaruhi pemilihan destinasi.'],['Accommodation is the only reason people travel.','Penginapan ialah satu-satunya sebab orang melancong.'],['Events have no connection with local businesses.','Acara tidak mempunyai kaitan dengan perniagaan tempatan.'],['Every visitor activity is a wellness service.','Setiap aktiviti pelawat ialah perkhidmatan kesejahteraan.']],answer:0,ex:'The slides explain that visitors choose places for what they can see, do, feel and participate in. Experience sectors can motivate travel and support spending beyond room and board.',exms:'Slaid menerangkan bahawa pelawat memilih destinasi berdasarkan perkara yang boleh dilihat, dilakukan, dirasai dan disertai. Sektor berasaskan pengalaman boleh mendorong perjalanan dan perbelanjaan selain penginapan.'},
+ {zone:'Recreation & Leisure',icon:'♧',scene:'Recreation planning',en:'A resort guest spends an hour quietly reading beside the pool. Which category best fits this activity?',ms:'Seorang tetamu resort membaca buku dengan tenang di tepi kolam selama satu jam. Kategori manakah paling sesuai?',options:[['Active recreation','Rekreasi aktif'],['Passive recreation','Rekreasi pasif'],['Government-sponsored recreation','Rekreasi tajaan kerajaan'],['A built attraction','Tarikan binaan']],answer:1,ex:'Passive recreation involves lower-effort enjoyment, such as reading, sightseeing, watching a performance or relaxing by a resort pool.',exms:'Rekreasi pasif melibatkan aktiviti santai yang memerlukan usaha fizikal lebih rendah, seperti membaca, bersiar-siar, menonton persembahan atau berehat di kolam resort.'},
+ {zone:'Recreation Providers',icon:'◎',scene:'Provider identification',en:'A private theme park charges market-rate admission and earns revenue from ticket sales and concessions. Which provider category does it represent?',ms:'Sebuah taman tema swasta mengenakan harga tiket pasaran dan memperoleh pendapatan daripada jualan tiket serta konsesi. Kategori penyedia manakah yang diwakilinya?',options:[['Government-sponsored','Tajaan kerajaan'],['Non-commercial organisation','Organisasi bukan komersial'],['Commercial provider','Penyedia komersial'],['Voluntary community club','Kelab komuniti sukarela']],answer:2,ex:'Commercial recreation providers are private businesses that typically generate revenue through ticket sales, memberships, concessions or other customer payments.',exms:'Penyedia rekreasi komersial ialah perniagaan swasta yang lazimnya menjana pendapatan melalui jualan tiket, keahlian, konsesi atau bayaran pelanggan lain.'},
+ {zone:'Tourism Attractions',icon:'⌂',scene:'Destination classification',en:'A visitor centre is asked to classify Taman Negara, George Town’s heritage area and the Petronas Twin Towers. Which sequence is correct?',ms:'Sebuah pusat pelawat diminta mengklasifikasikan Taman Negara, kawasan warisan George Town dan Menara Berkembar Petronas. Urutan manakah betul?',options:[['Natural · Cultural/heritage · Built','Semula jadi · Budaya/warisan · Binaan'],['Built · Natural · Event-based','Binaan · Semula jadi · Berasaskan acara'],['Cultural/heritage · Built · Natural','Budaya/warisan · Binaan · Semula jadi'],['Event-based · Cultural/heritage · Recreation','Berasaskan acara · Budaya/warisan · Rekreasi']],answer:0,ex:'The chapter uses Taman Negara as a natural attraction, George Town as cultural and heritage, and the Petronas Twin Towers as a built attraction.',exms:'Bab ini mengelaskan Taman Negara sebagai tarikan semula jadi, George Town sebagai tarikan budaya dan warisan, serta Menara Berkembar Petronas sebagai tarikan binaan.'},
+ {zone:'Festivals & Events',icon:'✦',scene:'Event classification desk',en:'The Rainforest World Music Festival is described as arts and cultural, international in reach, annual and open to the public. Which statement is correct?',ms:'Rainforest World Music Festival digambarkan sebagai acara seni dan kebudayaan, bertaraf antarabangsa, diadakan setiap tahun dan terbuka kepada orang ramai. Pernyataan manakah betul?',options:[['It can only be classified by its purpose.','Ia hanya boleh diklasifikasikan berdasarkan tujuan.'],['An event can fit several classification dimensions at once.','Satu acara boleh tergolong dalam beberapa dimensi klasifikasi serentak.'],['Annual means it is a one-off event.','Tahunan bermaksud acara sekali sahaja.'],['Public audience means it cannot attract tourists.','Sasaran orang awam bermaksud acara itu tidak boleh menarik pelancong.']],answer:1,ex:'The chapter classifies events by purpose/content, scale/reach, frequency and audience. One event may fit all four dimensions simultaneously.',exms:'Bab ini mengelaskan acara berdasarkan tujuan/kandungan, skala/capaian, kekerapan dan khalayak. Satu acara boleh memenuhi keempat-empat dimensi serentak.'},
+ {zone:'Destination Impact',icon:'↗',scene:'Destination impact monitor',en:'A three-day festival increases hotel bookings and restaurant sales, but the town experiences traffic congestion and more waste. What is the best interpretation?',ms:'Festival selama tiga hari meningkatkan tempahan hotel dan jualan restoran, tetapi bandar mengalami kesesakan lalu lintas dan pertambahan sisa. Apakah tafsiran terbaik?',options:[['Events create benefits only, so the risks can be ignored.','Acara hanya membawa manfaat, maka risiko boleh diabaikan.'],['Events can create economic benefits and operational challenges at the same time.','Acara boleh menghasilkan manfaat ekonomi dan cabaran operasi pada masa yang sama.'],['Higher hotel occupancy proves the event has no environmental impact.','Penghunian hotel yang tinggi membuktikan acara itu tiada impak alam sekitar.'],['Traffic and waste are unrelated to event planning.','Trafik dan sisa tidak berkaitan dengan perancangan acara.']],answer:1,ex:'Events can stimulate spending for accommodation, food and beverage, transport and local businesses. Planners must also prepare for congestion, waste, safety and seasonal demand.',exms:'Acara boleh merangsang perbelanjaan penginapan, makanan dan minuman, pengangkutan serta perniagaan tempatan. Penganjur juga perlu bersedia menghadapi kesesakan, sisa, keselamatan dan permintaan bermusim.'},
+ {zone:'Event Operations',icon:'⌘',scene:'Event operations room',en:'A cultural festival involves an organiser, nearby hotels, food vendors, bus operators, local authorities and security staff. What is essential for the event to run successfully?',ms:'Festival kebudayaan melibatkan penganjur, hotel berdekatan, vendor makanan, pengendali bas, pihak berkuasa tempatan dan petugas keselamatan. Apakah yang penting untuk memastikan acara berjalan lancar?',options:[['Each department works independently without sharing information.','Setiap jabatan bekerja sendiri tanpa berkongsi maklumat.'],['Coordination across planning, accommodation, food and beverage, staffing and safety.','Penyelarasan antara perancangan, penginapan, makanan dan minuman, tenaga kerja serta keselamatan.'],['Only the entertainment schedule needs to be confirmed.','Hanya jadual hiburan perlu disahkan.'],['Transport and security should be arranged after the event.','Pengangkutan dan keselamatan perlu diurus selepas acara.']],answer:1,ex:'The chapter highlights coordinated planning, accommodation, food and beverage, staffing and safety. The organisations involved must operate as an integrated system.',exms:'Bab ini menekankan penyelarasan perancangan, penginapan, makanan dan minuman, tenaga kerja serta keselamatan. Organisasi yang terlibat perlu beroperasi sebagai satu sistem bersepadu.'},
+ {zone:'Gaming Entertainment',icon:'◈',scene:'Integrated resort briefing',en:'A guest stays overnight, attends a live show, dines at a resort restaurant and visits a licensed gaming floor. What does this illustrate?',ms:'Seorang tetamu bermalam, menghadiri persembahan langsung, makan di restoran resort dan mengunjungi ruang permainan berlesen. Apakah yang ditunjukkan?',options:[['A standalone facility with no supporting services','Kemudahan berasingan tanpa perkhidmatan sokongan'],['An integrated casino resort connecting several revenue-generating departments','Resort kasino bersepadu yang menghubungkan beberapa jabatan penjana pendapatan'],['A non-commercial recreation club','Kelab rekreasi bukan komersial'],['A natural tourism attraction','Tarikan pelancongan semula jadi']],answer:1,ex:'An integrated casino resort combines gaming with accommodation, dining, entertainment, retail, meetings and guest services. Not every property offers every service.',exms:'Resort kasino bersepadu menggabungkan permainan dengan penginapan, sajian, hiburan, peruncitan, mesyuarat dan perkhidmatan tetamu. Tidak semua premis menawarkan setiap perkhidmatan.'},
+ {zone:'Industry Trends',icon:'⌁',scene:'Experience innovation lab',en:'A resort adds yoga retreats, wellness packages and fitness trails because more guests are seeking health-focused holidays. Which trend is it responding to?',ms:'Sebuah resort menambah retret yoga, pakej kesejahteraan dan laluan kecergasan kerana semakin ramai tetamu mencari percutian berfokuskan kesihatan. Trend manakah yang sedang ditangani?',options:[['Digital discovery only','Penemuan digital sahaja'],['Health, fitness and wellness','Kesihatan, kecergasan dan kesejahteraan'],['Seasonality only','Kemusiman sahaja'],['Event audience classification','Klasifikasi khalayak acara']],answer:1,ex:'The slides identify growing demand for active holidays, spa resorts, yoga retreats and fitness tourism. Operators may integrate wellness into leisure offerings.',exms:'Slaid mengenal pasti peningkatan permintaan untuk percutian aktif, resort spa, retret yoga dan pelancongan kecergasan. Pengendali boleh mengintegrasikan kesejahteraan dalam tawaran rekreasi.'},
+ {zone:'Responsible Practice',icon:'⬡',scene:'Responsible destination audit',en:'An attraction plans a popular outdoor event near a sensitive natural area. Which action best reflects responsible management?',ms:'Sebuah tarikan merancang acara luar yang popular berhampiran kawasan semula jadi yang sensitif. Tindakan manakah paling mencerminkan pengurusan bertanggungjawab?',options:[['Maximise attendance without assessing environmental effects.','Maksimumkan kehadiran tanpa menilai kesan alam sekitar.'],['Focus only on ticket income and ignore nearby residents.','Fokus pada pendapatan tiket sahaja dan abaikan penduduk berhampiran.'],['Plan visitor safety, waste management, environmental impact and community disruption together.','Rancang keselamatan pelawat, pengurusan sisa, impak alam sekitar dan gangguan komuniti secara bersama.'],['Promote the event before considering operational resources.','Promosikan acara sebelum mempertimbangkan sumber operasi.']],answer:2,ex:'The chapter’s responsible-management framework covers people, environment and responsible operations, including safety, waste, environmental impacts, community engagement and risk management.',exms:'Rangka kerja pengurusan bertanggungjawab dalam bab ini merangkumi manusia, alam sekitar dan operasi bertanggungjawab, termasuk keselamatan, sisa, impak alam sekitar, penglibatan komuniti dan pengurusan risiko.'}
 ];
-
-const $ = id => document.getElementById(id);
-const screens = ["homeScreen","instructionsScreen","gameScreen","completionScreen"];
-const ZONE_NAMES = ["Audience Intelligence","Positioning & Value","Campaign Planning","Sales Conversion","Budget & Measurement"];
-const HALL_QUESTION_RANGES = [[0,2],[3,5],[6,8],[9,11],[12,14]];
-let currentIndex = 0;
-let firstTryCorrect = [];
-let attempts = [];
-let locked = false;
-let startedAt = 0;
-let timerInterval = null;
-let remainingSeconds = 900;
-let untimed = false;
-let soundOn = false;
-let audioContext = null;
-
-function showScreen(id) {
-  screens.forEach(s => $(s).classList.toggle("hidden", s !== id));
-  window.scrollTo({top:0,behavior:"smooth"});
+const slideConnections=[
+ 'Chapter 8 introduces recreation, attractions, festivals, events and gaming entertainment as experience-based sectors that motivate destination choice and connect with hotels, restaurants and transport.',
+ 'The Recreation and Leisure section distinguishes recreation and leisure activities; the example applies the difference between active participation and passive relaxation.',
+ 'The chapter compares government-sponsored, commercial and non-commercial recreation providers. A private theme park earning revenue from admissions is a commercial provider.',
+ 'The Attractions section classifies attractions by their nature, including natural, cultural/heritage and built attractions.',
+ 'The Festivals and Events section explains that events can be classified by purpose/content, scale or reach, frequency and audience; these dimensions can overlap.',
+ 'The chapter discusses the benefits and challenges associated with recreation, attractions, festivals and events, including visitor spending as well as congestion and waste.',
+ 'The MICE and event content highlights key players and coordination across event stakeholders. Successful delivery depends on connected operations, not isolated providers.',
+ 'The Gaming Entertainment section describes how an integrated casino resort can combine gaming with accommodation, dining, live entertainment and other hospitality services.',
+ 'The trends content covers changes in recreation and leisure, including demand for wellness, fitness and experience-focused activities.',
+ 'The chapter’s operational and trend discussions support responsible planning: visitor experience must be balanced with safety, environmental effects and impacts on the local community.'
+];
+const screens=['home-screen','how-screen','game-screen','result-screen'];let current=0,score=0,firstTryCorrect=0,answered=new Array(questions.length).fill(false),firstTry=new Array(questions.length).fill(null),selected=null,attempts=0,done=new Array(questions.length).fill(false),pointsEarned=new Array(questions.length).fill(0);
+const $=id=>document.getElementById(id);function showScreen(id){screens.forEach(s=>$(s).classList.toggle('active',s===id));window.scrollTo({top:0,behavior:'smooth'})}function toast(msg){const t=$('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2200)}
+function start(){current=0;score=0;firstTryCorrect=0;answered.fill(false);firstTry.fill(null);done.fill(false);pointsEarned.fill(0);attempts=0;selected=null;showScreen('game-screen');renderStations();renderQuestion()}
+function renderStations(){const list=$('station-list');list.innerHTML='';questions.forEach((q,i)=>{const b=document.createElement('button');b.className='station '+(i===current?'active ':'')+(done[i]?'done ':'')+(!done[i]&&i>current?'locked':'');b.type='button';b.disabled=i!==current;b.innerHTML=`<span class="station-no">${done[i]?'✓':String(i+1).padStart(2,'0')}</span><span class="station-name">${q.zone}</span>`;b.addEventListener('click',()=>{if(i===current){renderQuestion()}});list.appendChild(b)})}
+function renderQuestion(){const q=questions[current];selected=null;attempts=0;$('station-number').textContent='STATION '+String(current+1).padStart(2,'0');$('question-number').textContent='CHALLENGE '+String(current+1).padStart(2,'0')+' / 10';$('zone-label').textContent='ZONE '+String(current+1).padStart(2,'0')+' · '+q.zone.toUpperCase();$('scenario-title').textContent=q.scene;$('scenario-icon').textContent=q.icon;$('question-en').textContent=q.en;$('question-ms').textContent=q.ms;$('score').textContent=score;$('progress-label').textContent=Math.round(done.filter(Boolean).length/questions.length*100)+'%';$('progress-bar').style.width=(done.filter(Boolean).length/questions.length*100)+'%';$('feedback').hidden=true;$('submit-btn').hidden=false;$('submit-btn').disabled=true;$('next-btn').hidden=true;const opts=$('options');opts.innerHTML='';q.options.forEach((o,i)=>{const b=document.createElement('button');b.className='option';b.type='button';b.innerHTML=`<span class="letter">${String.fromCharCode(65+i)}</span><span class="option-text">${o[0]}<span class="option-ms">${o[1]}</span></span>`;b.addEventListener('click',()=>{if(answered[current])return;selected=i;opts.querySelectorAll('.option').forEach(x=>x.classList.remove('selected'));b.classList.add('selected');$('submit-btn').disabled=false});opts.appendChild(b)});renderStations()}
+function submit(){
+ if(selected===null||done[current])return;
+ const q=questions[current],correct=selected===q.answer;
+ attempts++;
+ if(firstTry[current]===null)firstTry[current]=correct;
+ const buttons=[...$('options').querySelectorAll('.option')];
+ buttons.forEach((b,i)=>{b.disabled=true;if(correct&&i===q.answer)b.classList.add('correct');if(i===selected&&!correct)b.classList.add('incorrect')});
+ const f=$('feedback');f.hidden=false;
+ if(!correct){
+   f.className='feedback bad';
+   f.innerHTML=`<strong>Not quite — you must answer correctly to continue. / Belum tepat — anda perlu menjawab dengan betul untuk meneruskan.</strong><span>Revisit the question and choose again. The next station remains locked. / Teliti semula soalan dan pilih jawapan sekali lagi. Stesen seterusnya kekal terkunci.</span>`;
+   $('submit-btn').hidden=true;$('next-btn').hidden=true;
+   let retry=$('retry-btn');
+   if(!retry){retry=document.createElement('button');retry.className='btn btn-quiet';retry.id='retry-btn';retry.textContent='Try again / Cuba lagi';$('challenge-panel').querySelector('.challenge-actions').appendChild(retry);}
+   retry.hidden=false;
+   retry.onclick=()=>{retry.hidden=true;f.hidden=true;buttons.forEach(b=>{b.disabled=false;b.classList.remove('incorrect','correct','selected')});selected=null;$('submit-btn').hidden=false;$('submit-btn').disabled=true;};
+   return;
+ }
+ // Score is awarded once only: 10 points on the first attempt, 5 after one or more incorrect attempts.
+ const earned=firstTry[current]===true?10:5;
+ pointsEarned[current]=earned;score=pointsEarned.reduce((a,b)=>a+b,0);
+ if(firstTry[current]===true)firstTryCorrect++;
+ done[current]=true;answered[current]=true;
+ f.className='feedback good';
+ f.innerHTML=`<strong>Correct — station unlocked! +${earned} points / Betul — stesen dibuka! +${earned} mata</strong><div>${q.ex}</div><span class="feedback-ms">${q.exms}</span><div class="slide-connection"><b>Connection to your Chapter 8 slides / Hubungan dengan slaid Bab 8</b><span>${slideConnections[current]}</span><span class="feedback-ms">Kaitkan jawapan ini dengan konsep utama yang dibincangkan dalam slaid bagi bahagian ini. Baca semula bahagian berkaitan dan fikirkan bagaimana konsep ini digunakan dalam industri hospitaliti dan pelancongan.</span></div>`;
+ $('score').textContent=score;$('submit-btn').hidden=true;$('next-btn').hidden=false;
+ const retry=$('retry-btn');if(retry)retry.hidden=true;
+ $('next-btn').innerHTML=current===questions.length-1?'View mission report <span>↗</span>':'Continue <span>→</span>';
+ renderStations();$('progress-label').textContent=Math.round(done.filter(Boolean).length/questions.length*100)+'%';$('progress-bar').style.width=(done.filter(Boolean).length/questions.length*100)+'%';
 }
-function toast(message) {
-  const el = $("toast"); el.textContent = message; el.classList.remove("hidden");
-  clearTimeout(toast.timeout); toast.timeout = setTimeout(() => el.classList.add("hidden"), 2300);
-}
-function playTone(freq=660, duration=.07) {
-  if (!soundOn) return;
-  try {
-    audioContext = audioContext || new (window.AudioContext || window.webkitAudioContext)();
-    const oscillator = audioContext.createOscillator(), gain = audioContext.createGain();
-    oscillator.frequency.value = freq; oscillator.type = "sine";
-    gain.gain.setValueAtTime(.035, audioContext.currentTime);
-    gain.gain.exponentialRampToValueAtTime(.001, audioContext.currentTime + duration);
-    oscillator.connect(gain); gain.connect(audioContext.destination); oscillator.start(); oscillator.stop(audioContext.currentTime + duration);
-  } catch (_) {}
-}
-function startFromHome() { showScreen("instructionsScreen"); }
-function startGame() {
-  currentIndex = 0; firstTryCorrect = Array(QUESTION_BANK.length).fill(null);
-  attempts = QUESTION_BANK.map(() => 0); locked = false;
-  untimed = $("untimedToggle").checked; remainingSeconds = 900; startedAt = Date.now();
-  clearInterval(timerInterval); $("timerMetric").classList.toggle("hidden", untimed);
-  updateTimer(); if (!untimed) timerInterval = setInterval(tickTimer, 1000);
-  showScreen("gameScreen"); renderQuestion();
-}
-function tickTimer() {
-  remainingSeconds = Math.max(0, 900 - Math.floor((Date.now()-startedAt)/1000));
-  updateTimer();
-  if (remainingSeconds <= 0) {
-    clearInterval(timerInterval);
-    toast("Time target reached. Finish the current learning challenge at your own pace.");
-    // The timer is a pacing aid, not a forced failure condition.
-  }
-}
-function updateTimer() {
-  const secs = untimed ? 0 : Math.max(0, 900 - Math.floor((Date.now()-startedAt)/1000));
-  $("timerText").textContent = `${String(Math.floor(secs/60)).padStart(2,"0")}:${String(secs%60).padStart(2,"0")}`;
-}
-function renderQuestion() {
-  locked = false;
-  const q = QUESTION_BANK[currentIndex];
-  $("zoneTitle").textContent = `Zone ${String(Math.floor(currentIndex/3)+1).padStart(2,"0")}: ${q.zone}`;
-  $("challengeNumber").textContent = `CHALLENGE ${String(currentIndex+1).padStart(2,"0")}`;
-  $("progressText").textContent = `${String(currentIndex+1).padStart(2,"0")} / ${QUESTION_BANK.length}`;
-  $("scoreText").textContent = `${Math.round(firstTryCorrect.filter(v=>v===true).length/QUESTION_BANK.length*100)}%`;
-  $("progressFill").style.width = `${currentIndex/QUESTION_BANK.length*100}%`;
-  $("progressFill").parentElement.setAttribute("aria-valuenow", String(currentIndex));
-  $("questionText").textContent = q.question; $("questionContext").textContent = q.context;
-  $("fieldNote").textContent = q.fieldNote;
-  $("attemptText").textContent = "Choose one answer to test the lock.";
-  $("feedbackBox").className = "feedback hidden"; $("continueButton").classList.add("hidden");
-  const container = $("answersContainer"); container.innerHTML = "";
-  q.options.forEach((option, i) => {
-    const button = document.createElement("button"); button.type = "button"; button.className = "answer";
-    button.innerHTML = `<span class="letter">${String.fromCharCode(65+i)}</span><span></span>`;
-    button.querySelector("span:last-child").textContent = option;
-    button.addEventListener("click", () => chooseAnswer(i)); container.appendChild(button);
-  });
-  updateMap();
-}
-function chooseAnswer(optionIndex) {
-  if (locked) return;
-  const q = QUESTION_BANK[currentIndex], buttons = [...$("answersContainer").querySelectorAll("button")];
-  attempts[currentIndex]++;
-  const correct = optionIndex === q.answer;
-  if (firstTryCorrect[currentIndex] === null) firstTryCorrect[currentIndex] = correct;
-  buttons.forEach((b,i) => {
-    b.disabled = true;
-    if (i === q.answer) b.classList.add("correct");
-    if (i === optionIndex && !correct) b.classList.add("incorrect");
-  });
-  const box = $("feedbackBox"); box.className = `feedback ${correct ? "good" : "bad"}`;
-  $("feedbackIcon").textContent = correct ? "✓" : "!";
-  $("feedbackTitle").textContent = correct ? "Lock unlocked" : "Not quite — review the clue";
-  $("feedbackText").textContent = correct
-    ? `Correct. ${q.explanation}`
-    : `The best answer is ${String.fromCharCode(65+q.answer)}: ${q.options[q.answer]}. ${q.explanation}`;
-  box.classList.remove("hidden");
-  if (correct) {
-    locked = true; $("attemptText").textContent = "Access granted. Read the explanation, then continue.";
-    $("continueButton").textContent = currentIndex === QUESTION_BANK.length-1 ? "View learning report →" : "Continue to next area →";
-    $("continueButton").classList.remove("hidden"); playTone(820,.12);
-  } else {
-    $("attemptText").textContent = "Review the feedback, then select an answer to try again.";
-    buttons.forEach(b => { b.disabled = false; });
-    // Keep the correct answer visibly marked but allow a retry.
-    buttons.forEach((b,i) => { if (i===q.answer) b.classList.add("correct"); });
-    playTone(250,.12);
-  }
-  $("scoreText").textContent = `${Math.round(firstTryCorrect.filter(v=>v===true).length/QUESTION_BANK.length*100)}%`;
-}
-function continueGame() {
-  if (!locked) return;
-  if (currentIndex >= QUESTION_BANK.length-1) { finishGame(); return; }
-  currentIndex++; renderQuestion(); playTone(540,.06);
-}
-function updateMap() {
-  const halls = [...document.querySelectorAll(".hall")];
-  halls.forEach((hall, i) => {
-    const range = HALL_QUESTION_RANGES[i];
-    hall.classList.toggle("complete", currentIndex > range[1]);
-    hall.classList.toggle("current", currentIndex >= range[0] && currentIndex <= range[1]);
-  });
-  const player = $("mapPlayer");
-  const positions = [{top:"33px",left:"calc(50% - 7px)"},{top:"91px",left:"calc(100% - 45px)"},{top:"151px",left:"calc(50% - 7px)"},{top:"211px",left:"20px"},{top:"calc(100% - 30px)",left:"calc(100% - 45px)"}];
-  const pos = positions[Math.min(4, Math.floor(currentIndex/3))]; player.style.top = pos.top; player.style.left = pos.left;
-}
-function finishGame() {
-  clearInterval(timerInterval);
-  const correctCount = firstTryCorrect.filter(v=>v===true).length;
-  const accuracy = Math.round(correctCount/QUESTION_BANK.length*100);
-  const used = Math.floor((Date.now()-startedAt)/1000);
-  $("progressFill").style.width = "100%";
-  $("completionTitle").textContent = accuracy >= 80 ? "The venue is yours." : "Exit unlocked — keep sharpening your strategy.";
-  $("completionMessage").textContent = accuracy >= 80 ? "Strong work. You applied event marketing decisions with confidence." : "You completed every challenge. Review the learning report to strengthen the concepts you missed.";
-  $("finalAccuracy").textContent = `${accuracy}%`;
-  $("finalSolved").textContent = `${QUESTION_BANK.length} / ${QUESTION_BANK.length}`;
-  $("finalTime").textContent = untimed ? "Untimed" : formatTime(used);
-  $("reviewSummary").textContent = `${correctCount} correct on first attempt · ${QUESTION_BANK.length-correctCount} to review`;
-  const list = $("reviewList"); list.innerHTML = "";
-  QUESTION_BANK.forEach((q,i) => {
-    const details = document.createElement("details"); details.className = "review-item";
-    const summary = document.createElement("summary");
-    const num = document.createElement("span"); num.className = "review-num"; num.textContent = String(i+1).padStart(2,"0");
-    const question = document.createElement("span"); question.className = "review-question"; question.textContent = q.question;
-    const status = document.createElement("span"); status.className = `review-status ${firstTryCorrect[i] ? "" : "missed"}`; status.textContent = firstTryCorrect[i] ? "FIRST-TRY CORRECT" : "REVIEW";
-    summary.append(num,question,status);
-    const body = document.createElement("div"); body.className = "review-body";
-    const answer = document.createElement("p"); answer.innerHTML = "<b>Best answer:</b> "; answer.append(document.createTextNode(`${String.fromCharCode(65+q.answer)}. ${q.options[q.answer]}`));
-    const explain = document.createElement("p"); explain.innerHTML = "<b>Why:</b> "; explain.append(document.createTextNode(q.explanation));
-    body.append(answer,explain); details.append(summary,body); list.appendChild(details);
-    if (!firstTryCorrect[i]) details.open = true;
-  });
-  showScreen("completionScreen");
-}
-function formatTime(seconds) { return `${Math.floor(seconds/60)}m ${String(seconds%60).padStart(2,"0")}s`; }
-function goHome() {
-  clearInterval(timerInterval); showScreen("homeScreen");
-}
-function restart() {
-  $("untimedToggle").checked = false; showScreen("instructionsScreen");
-}
-$("startButton").addEventListener("click", startFromHome);
-$("howToButton").addEventListener("click", startFromHome);
-$("brandHome").addEventListener("click", e => { e.preventDefault(); goHome(); });
-$("backHomeButton").addEventListener("click", goHome);
-$("beginGameButton").addEventListener("click", startGame);
-$("continueButton").addEventListener("click", continueGame);
-$("quitButton").addEventListener("click", () => { if (confirm("Return to the home screen? Your current run will be lost.")) goHome(); });
-$("completionHomeButton").addEventListener("click", goHome);
-$("restartButton").addEventListener("click", restart);
-$("soundToggle").addEventListener("click", () => {
-  soundOn = !soundOn; $("soundToggle").setAttribute("aria-pressed", String(soundOn));
-  $("soundLabel").textContent = soundOn ? "Sound on" : "Sound off"; if(soundOn) playTone(660,.07);
-});
-document.addEventListener("keydown", e => {
-  if ($("gameScreen").classList.contains("hidden")) return;
-  if (e.key === "Enter" && !$("continueButton").classList.contains("hidden") && document.activeElement === document.body) continueGame();
-});
+function next(){if(current===questions.length-1){finish();return}current++;renderQuestion();$('challenge-panel').scrollIntoView({behavior:'smooth',block:'start'})}
+function finish(){score=pointsEarned.reduce((a,b)=>a+b,0);showScreen('result-screen');$('final-score').textContent=score;$('correct-count').textContent=firstTryCorrect+'/10';$('completed-count').textContent=done.filter(Boolean).length+'/10';let title,msg;if(score>=90){title='Outstanding field work.';msg='Excellent application of Chapter 8 concepts. You connected visitor experiences with industry operations and responsible management.'}else if(score>=70){title='Destination restored.';msg='Good work. Review the explanations for any concepts that needed a second attempt, especially classification and responsible operations.'}else{title='Mission completed.';msg='You completed all stations. Revisit the concepts below and try again to strengthen your understanding.'}$('result-title').textContent=title;$('result-message').textContent=msg+' / '+(score>=90?'Cemerlang! Anda mengaplikasikan konsep Bab 8 dengan baik.':score>=70?'Syabas. Ulang kaji penerangan konsep yang memerlukan cubaan kedua.':'Anda telah menyelesaikan semua stesen. Ulang kaji konsep dan cuba sekali lagi untuk mengukuhkan pemahaman.');$('review-list').hidden=true;$('review-list').innerHTML=questions.map((q,i)=>`<div class="review-item"><b>${String(i+1).padStart(2,'0')}. ${q.zone} — ${q.options[q.answer][0]}</b>${q.ex}<br><span style="color:#718589">${q.exms}</span></div>`).join('')}
+$('start-btn').addEventListener('click',start);$('how-btn').addEventListener('click',()=>showScreen('how-screen'));$('how-back').addEventListener('click',()=>showScreen('home-screen'));$('how-start').addEventListener('click',start);$('submit-btn').addEventListener('click',submit);$('next-btn').addEventListener('click',next);$('restart-btn').addEventListener('click',start);$('review-btn').addEventListener('click',()=>{$('review-list').hidden=!$('review-list').hidden;$('review-btn').textContent=$('review-list').hidden?'Review concepts / Ulang kaji konsep':'Hide review / Tutup ulang kaji'});$('home-link').addEventListener('click',()=>{if(confirm('Return to mission home? Current progress will be lost. / Kembali ke laman utama? Kemajuan semasa akan hilang.'))showScreen('home-screen')});
